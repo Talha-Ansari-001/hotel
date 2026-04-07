@@ -1,5 +1,5 @@
 import React, { memo } from 'react';
-import { ShoppingCart, UtensilsCrossed, User } from 'lucide-react';
+import { ConciergeBell, UtensilsCrossed, User } from 'lucide-react';
 import { useCart } from "../../context/CartContext";
 
 import { motion } from 'framer-motion';
@@ -21,7 +21,7 @@ const Header = memo(({ onCartOpen }) => {
           </div>
           <div className="hidden sm:block">
             <h1 className="font-serif text-3xl font-bold tracking-tight text-secondary">
-              RIZWAN <span className="text-primary font-light italic">HOTEL</span>
+              HOTEL <span className="text-primary font-light italic">NINE</span>
             </h1>
             <div className="flex items-center gap-2">
               <span className="h-[1px] w-6 bg-primary/40"></span>
@@ -52,24 +52,26 @@ const Header = memo(({ onCartOpen }) => {
               variant="secondary"
               size="icon"
               onClick={onCartOpen}
-              className="relative rounded-2xl h-14 w-14 shadow-xl shadow-secondary/10 group-hover:bg-primary transition-colors duration-500 overflow-hidden"
+              className="relative rounded-[1.2rem] h-14 w-14 shadow-[0_10px_30px_rgba(0,0,0,0.1)] border border-primary/10 group-hover:border-primary/50 transition-all duration-500 overflow-visible bg-white"
               aria-label={`Open cart, ${cartCount} items`}
             >
-              <div className="absolute inset-0 bg-primary translate-y-full group-hover:translate-y-0 transition-transform duration-500" />
-              <ShoppingCart className="w-6 h-6 relative z-10 transition-colors group-hover:text-white" />
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent rounded-[1.2rem] opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <ConciergeBell className="w-6 h-6 relative z-10 transition-colors text-secondary group-hover:text-primary" />
               
               {cartCount > 0 && (
                 <motion.span 
                   key={cartCount}
-                  initial={{ scale: 0 }}
-                  animate={{ scale: [1.1, 1] }}
-                  transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                  className="absolute -top-1.5 -right-1.5 bg-primary text-white text-[10px] font-bold w-6 h-6 flex items-center justify-center rounded-full border-[3px] border-[#FDFBF7] shadow-lg z-20"
+                  initial={{ scale: 0, y: 5 }}
+                  animate={{ scale: 1, y: 0 }}
+                  transition={{ type: "spring", stiffness: 400, damping: 25 }}
+                  className="absolute -top-2 -right-2 bg-secondary text-primary text-[10px] font-black w-6 h-6 flex items-center justify-center rounded-full border-2 border-white shadow-[0_4px_10px_rgba(0,0,0,0.2)] z-20"
                 >
                   {cartCount}
                 </motion.span>
               )}
             </Button>
+            {/* Subtle Glow Effect */}
+            <div className="absolute inset-0 bg-primary/20 blur-2xl rounded-full opacity-0 group-hover:opacity-40 transition-opacity duration-700 -z-10" />
           </motion.div>
         </div>
       </div>

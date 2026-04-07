@@ -43,7 +43,7 @@ ${itemsText}
 
 *SPECIAL NOTE:* ${formData.instructions || 'None'}
 
-_Sent via Rizwan Hotel Premium Dining_`;
+_Sent via Hotel Nine Premium Dining_`;
 
     const whatsappUrl = `https://wa.me/919881375611?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, '_blank');

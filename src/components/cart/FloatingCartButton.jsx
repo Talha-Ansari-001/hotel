@@ -1,38 +1,47 @@
 import React from 'react';
-import { ShoppingCart } from 'lucide-react';
+import { ConciergeBell } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 /**
  * FloatingCartButton Component
- * Renders a floating button with cart item count for mobile view.
- * Fixed to the bottom-left corner.
+ * Renders a premium floating button with cart item count for mobile view.
  */
 const FloatingCartButton = ({ onClick, cartCount }) => {
   return (
     <AnimatePresence>
       {cartCount > 0 && (
         <motion.button
-          key="floating-cart-btn-v2"
-          initial={{ scale: 0, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
-          exit={{ scale: 0, opacity: 0 }}
+          key="floating-cart-btn-premium"
+          initial={{ scale: 0, y: 50, opacity: 0 }}
+          animate={{ scale: 1, y: 0, opacity: 1 }}
+          exit={{ scale: 0, y: 50, opacity: 0 }}
           whileTap={{ scale: 0.9 }}
           onClick={onClick}
-          className="fixed bottom-6 left-6 z-[60] bg-secondary text-white p-5 rounded-full shadow-[0_20px_50px_rgba(0,0,0,0.3)] border-2 border-primary flex items-center justify-center transition-colors group"
+          className="fixed bottom-8 right-8 z-[60] bg-secondary text-white p-5 rounded-[1.8rem] shadow-[0_20px_50px_rgba(0,0,0,0.4)] border-2 border-primary/30 flex items-center justify-center transition-all group overflow-hidden"
           aria-label={`Open cart with ${cartCount} items`}
         >
-          <div className="relative">
-            <ShoppingCart className="w-6 h-6" />
+          {/* Premium Gradient Background */}
+          <div className="absolute inset-0 bg-gradient-to-tr from-secondary via-secondary to-primary/20 opacity-100" />
+          
+          <div className="relative z-10">
+            <ConciergeBell className="w-7 h-7 text-primary" />
             
             <motion.span
               key={cartCount}
-              initial={{ scale: 0 }}
-              animate={{ scale: 1 }}
-              className="absolute -top-3 -right-3 bg-primary text-white text-[11px] font-black w-6 h-6 flex items-center justify-center rounded-full border-2 border-secondary shadow-lg"
+              initial={{ scale: 0, rotate: -20 }}
+              animate={{ scale: 1, rotate: 0 }}
+              className="absolute -top-4 -right-4 bg-primary text-secondary text-[11px] font-black w-7 h-7 flex items-center justify-center rounded-full border-2 border-secondary shadow-lg shadow-black/20"
             >
               {cartCount}
             </motion.span>
           </div>
+
+          {/* Shine animation */}
+          <motion.div 
+            animate={{ x: ['-100%', '200%'] }}
+            transition={{ duration: 3, repeat: Infinity, ease: "linear", repeatDelay: 5 }}
+            className="absolute inset-0 w-1/2 h-full bg-gradient-to-r from-transparent via-white/10 to-transparent skew-x-12"
+          />
         </motion.button>
       )}
     </AnimatePresence>

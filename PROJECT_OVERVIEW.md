@@ -1,4 +1,4 @@
-# 🏨 Rizwan Hotel Premium Dining - Ordering App
+# 🏨 Hotel Nine Premium Dining - Ordering App
 
 A modern, high-end React-Vite application designed for seamless hotel in-room dining and pickup experiences. This platform allows guests to browse a curated menu, manage their cart, and place orders directly via WhatsApp.
 

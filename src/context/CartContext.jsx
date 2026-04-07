@@ -14,7 +14,7 @@ export const useCart = () => {
 export const CartProvider = ({ children }) => {
   const [cartItems, setCartItems] = useState(() => {
     try {
-      const savedCart = localStorage.getItem('rizwan_hotel_cart');
+      const savedCart = localStorage.getItem('hotel_nine_cart');
       return savedCart ? JSON.parse(savedCart) : [];
     } catch (e) {
       console.error("Failed to load cart from localStorage", e);
@@ -23,7 +23,7 @@ export const CartProvider = ({ children }) => {
   });
 
   useEffect(() => {
-    localStorage.setItem('rizwan_hotel_cart', JSON.stringify(cartItems));
+    localStorage.setItem('hotel_nine_cart', JSON.stringify(cartItems));
   }, [cartItems]);
 
   const addToCart = useCallback((product) => {
@@ -70,7 +70,7 @@ export const CartProvider = ({ children }) => {
 
   const clearCart = useCallback(() => {
     setCartItems([]);
-    localStorage.removeItem('rizwan_hotel_cart');
+    localStorage.removeItem('hotel_nine_cart');
   }, []);
 
   const cartTotal = useMemo(() => 

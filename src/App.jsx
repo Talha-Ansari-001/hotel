@@ -6,9 +6,10 @@ import Header from './components/layout/Header';
 import Hero from './components/layout/Hero';
 import FloatingCartButton from './components/cart/FloatingCartButton';
 import { motion, AnimatePresence } from 'framer-motion';
-import { SlidersHorizontal, Utensils, XCircle } from 'lucide-react';
+import { SlidersHorizontal, XCircle } from 'lucide-react';
 import { Button } from './components/ui/Button';
 import { FoodCardSkeleton } from './components/ui/Skeleton';
+import Footer from './components/Footer';
 
 // Lazy load heavy components
 const FoodCard = lazy(() => import('./components/menu/FoodCard'));
@@ -190,17 +191,7 @@ function App() {
           </section>
         </main>
 
-        <footer className="bg-secondary text-white pt-24 pb-12 px-4 md:px-8 border-t border-white/5">
-          <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 border-b border-white/5 pb-20">
-            <div className="space-y-8">
-              <div className="flex items-center gap-3">
-                <Utensils className="w-6 h-6 text-primary" />
-                <h4 className="font-serif text-3xl font-bold tracking-tight">RIZWAN <span className="text-primary italic">HOTEL</span></h4>
-              </div>
-              <p className="text-gray-400 text-sm leading-relaxed font-medium">Established in 1995, we've dedicated decades to the art of fine dining.</p>
-            </div>
-          </div>
-        </footer>
+        <Footer />
 
         {/* Global Overlays */}
         <Suspense fallback={null}>
