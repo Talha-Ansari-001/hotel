@@ -29,19 +29,19 @@ const CheckoutModal = memo(({ isOpen, onClose }) => {
       .map((item) => `• ${item.quantity} x ${item.name} (₹${item.price})`)
       .join('\n');
 
-    const message = `🛎️ *NEW ORDER RECEIVED*
+    const message = `*NEW ORDER RECEIVED*
 
-👤 *CUSTOMER:* ${formData.name.toUpperCase()}
-📞 *PHONE:* ${formData.phone || 'N/A'}
-🏨 *ROOM/TABLE:* ${formData.room}
-🚚 *TYPE:* ${formData.orderType}
+*CUSTOMER:* ${formData.name.toUpperCase()}
+*PHONE:* ${formData.phone || 'N/A'}
+*ROOM/TABLE:* ${formData.room}
+*TYPE:* ${formData.orderType}
 
-🧾 *ITEMS:*
+*ITEMS:*
 ${itemsText}
 
-💰 *TOTAL PAYABLE: ₹${cartTotal}*
+*TOTAL PAYABLE: ₹${cartTotal}*
 
-📝 *SPECIAL NOTE:* ${formData.instructions || 'None'}
+*SPECIAL NOTE:* ${formData.instructions || 'None'}
 
 _Sent via Rizwan Hotel Premium Dining_`;
 
