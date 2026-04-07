@@ -1,0 +1,34 @@
+@import "tailwindcss";
+@config "../tailwind.config.js";
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+.premium-gradient {
+  background: linear-gradient(135deg, #1A1A1A 0%, #2D2D2D 100%);
+}
+
+.gold-text {
+  @apply text-primary;
+}
+
+.btn-primary {
+  @apply bg-primary hover:bg-primary-dark text-white px-6 py-2.5 rounded-full transition-all duration-300 font-medium;
+}
+
+.btn-outline {
+  @apply border-2 border-primary text-primary hover:bg-primary hover:text-white px-6 py-2 rounded-full transition-all duration-300 font-medium;
+}
+
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
